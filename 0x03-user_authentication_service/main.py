@@ -8,10 +8,7 @@ import requests
 def register_user(email: str, password: str) -> None:
     """Tests user registration"""
     response = requests.post(f"{BASE_URL}/users",
-                             data={
-                                 "email": email,
-                                 "password": password
-    })
+                             data={"email": email, "password": password})
     assert response.status_code == 200
     assert response.json() == {"email": email, "message": "user created"}
 
